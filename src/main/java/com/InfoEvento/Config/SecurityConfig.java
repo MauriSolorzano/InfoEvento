@@ -91,12 +91,12 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(Arrays.asList(
-                "http://10.0.0.50:3000",
-                "http://localhost:3000",
+                "http://localhost:5500",
                 "http://127.0.0.1:5500",
-                "http://10.0.0.50",
-                "https://10.0.0.50"
-                // ✅ Agregá acá el dominio del frontend nuevo cuando lo tengas
+                "http://localhost:3000",
+                "http://2.24.30.153:3000",
+                "https://infoevento.duckdns.org",
+                "http://infoevento.duckdns.org"
         ));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type",
