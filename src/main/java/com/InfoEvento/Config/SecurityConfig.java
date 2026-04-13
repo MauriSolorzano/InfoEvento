@@ -95,8 +95,7 @@ public class SecurityConfig {
                 "http://127.0.0.1:5500",
                 "http://localhost:3000",
                 "http://2.24.30.153:3000",
-                "https://infoevento.duckdns.org",
-                "http://infoevento.duckdns.org"
+                "https://infoevento.duckdns.org"
         ));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type",
