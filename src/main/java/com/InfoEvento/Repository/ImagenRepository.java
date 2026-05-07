@@ -12,4 +12,8 @@ public interface ImagenRepository extends JpaRepository<Imagen, Long> {
 
     List<Imagen> findByAprobadaFalseOrderBySubidaEnAsc();
     List<Imagen> findBySectorIdAndAprobadaFalseOrderBySubidaEnAsc(Long sectorId);
+
+    List<Imagen> findByAprobadaTrueOrderBySubidaEnDesc();
+
+    List<Imagen> findBySectorIdAndAprobadaTrueOrderBySubidaEnDesc(Long sectorId);
 }

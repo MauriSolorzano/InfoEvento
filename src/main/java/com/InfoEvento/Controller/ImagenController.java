@@ -74,6 +74,18 @@ public class ImagenController {
         }
     }
 
+    // Protegido - obtener todas las imágenes aprobadas (para galería del admin)
+    @GetMapping("/aprobadas")
+    public ResponseEntity<?> obtenerTodasAprobadas(@RequestParam(required = false) Long sectorId) {
+        try {
+            List<Imagen> imagenes = imagenService.obtenerImagenesAprobadas(sectorId);
+            return ResponseEntity.ok(imagenes);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Map.of("error", e.getMessage()));
+        }
+    }
+
     // Protegido - el admin elimina cualquier imagen
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminarImagen(@PathVariable Long id) {

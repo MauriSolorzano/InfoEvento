@@ -65,6 +65,15 @@ public class ImagenService {
         return imagenRepository.findBySectorIdAndAprobadaTrueOrderByOrdenAsc(sectorId);
     }
 
+    public List<Imagen> obtenerImagenesAprobadas(Long sectorId) {
+        if (sectorId != null) {
+            sectorRepository.findById(sectorId)
+                    .orElseThrow(() -> new IllegalArgumentException("Sector no encontrado"));
+            return imagenRepository.findBySectorIdAndAprobadaTrueOrderBySubidaEnDesc(sectorId);
+        }
+        return imagenRepository.findByAprobadaTrueOrderBySubidaEnDesc();
+    }
+
     // ── Eliminar ──────────────────────────────────────────────
     public void eliminarImagenPorId(Long id) {
         Imagen imagen = imagenRepository.findById(id)
